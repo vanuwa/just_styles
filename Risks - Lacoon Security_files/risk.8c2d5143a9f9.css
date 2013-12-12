@@ -1,0 +1,238 @@
+#top_nav_bar{
+	width: 100%;
+	background-color: #2b6181;	
+	height: 36px;
+	padding-top: 8px;
+	padding-bottom: 6px;
+	box-shadow: 0px 2px 1px #888888;
+}
+
+#device_in_depth>header,.component>header {
+	position: relative;
+	height: 32px;
+	border: solid #d5d4d4 4px;	
+	background-color: #C9C9C9;
+}
+
+#device_in_depth>header h1,.component>header h1 {
+	position: absolute;
+	margin-top: 11px;
+	display: inline;
+	font-family: MuseoSans-900;
+	font-size: 14px;
+	color: #11557d;
+}
+
+.top_nav_button {
+	font-size: 15px;
+	color: #FFF;	
+	padding-right:10px;
+	padding-left:10px;	
+	font-family: MuseoSans-500;	
+	text-decoration: none;
+	top: 6px;
+	position: relative;
+	cursor: pointer;
+}
+
+.top_nav_button:HOVER{
+	color: #fcee21;
+}
+
+.quick_search{
+	position: relative;
+	float: right;
+	margin-right: 16px;
+}
+
+#risky_devices_table {
+	position:relative;
+	margin-top: 10px;
+	background-image: url("../images/foot-bg.30b2c05d8272.png");
+	background-repeat: repeat-x;
+	background-position: bottom;
+	min-height: 263px;
+	box-shadow: 0px 3px 5px #888888;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.glue_to_bottom{
+	position: absolute;
+	bottom: 0px;
+	width: 100%;	
+}
+
+.table_pagination_control{
+	margin-right: auto;
+	margin-left: auto;
+	width: 400px;
+	height: 12%;
+	margin-top: 5px;
+}
+
+#device_in_depth_container{
+	width: 100%;
+	position: relative;
+	min-height: 164px;
+	border-bottom: solid thin #CCCCCC;
+	margin-top: 10px;
+	box-shadow: 0px 6px 9px #888888;
+}
+
+#device_in_depth{
+	margin-top: 15px;
+}
+
+.device_in_depth_content{
+	float: left;
+	margin: 10px;
+	width: 31%;
+}
+
+#search_alert_bar{	
+	height: 36px;		
+}
+
+#show_only_unresolved{
+	margin-left: 10px;
+	float: left;
+}
+#device_alerts_table_container{
+	height: 87%;
+	min-height: 300px;
+}
+
+.admin_action_img {
+	width: 25px;
+	height: 25px;
+	float: left;
+	background-repeat: no-repeat;
+	margin-right: 10px;	
+}
+.black_list_app{
+	background-image: url("../images/black_list_app.58cb1869cc0b.png");
+}
+
+.user_approved{
+	background-image: url("../images/user_approved.af5b99610cd2.png");
+}
+
+.white_list_app{
+	background-image: url("../images/white_list_app.d7f5c7d67a14.png");
+}
+
+#overflowFixer{
+	overflow-y: auto;
+	height: 263px;
+}
+
+#risky_devices_table_body>tr, #device_alerts_table_body>tr {
+	/* First we need to help some browsers along for this to work.
+     Just because a vendor prefix is there, doesn't mean it will
+     work in a browser made by that vendor either, it's just for
+     future-proofing purposes I guess. */
+  -o-transition:.5s;
+  -ms-transition:.5s;
+  -moz-transition:.5s;
+  -webkit-transition:.5s;
+  /* ...and now for the proper property */
+  transition:.5s;
+  
+}
+
+#risky_devices_table_body>tr>td:first-child, #device_alerts_table_body>tr>td:first-child {
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+#risky_devices_table_body>tr td:last-child,  #device_alerts_table_body>tr td:last-child{
+	border-top-right-radius: 6px;
+	border-bottom-right-radius: 6px;
+}
+
+#risky_devices_table_body>tr:HOVER{
+	background: #a3bcc6;
+	cursor: pointer;
+}
+#device_alerts_table_body>tr:HOVER{
+	background: #a3bcc6;
+}
+
+#device_alerts_conrtainer{
+	padding-left: 5px;
+	padding-right: 5px;
+	margin-top: 20px;
+	position: relative;
+	background-image: url("../images/foot-bg.30b2c05d8272.png");
+	background-repeat: repeat-x;
+	background-position: bottom;	
+}
+
+#device_alert_vpn_status{
+	display: inline-block;
+}
+
+.onClass{
+	background-image: url("../images/on.f629ff253fd3.png");
+	background-repeat:no-repeat;
+	width: 70px;
+	height: 25px;
+	top: 8px;
+	position: relative;
+}
+
+.offClass{
+	background-image: url("../images/off.a1dc9f5a1793.png");
+	background-repeat:no-repeat;
+	width: 70px;
+	height: 25px;
+	top: 8px;
+	position: relative;
+}
+
+#risky_devices_table_container{
+	overflow-y: auto;
+	height: 223px;
+}
+
+#selected_device_details{	
+}
+
+.headerClass{
+	box-shadow: 0px 3px 5px #888888;
+}
+
+.whiteBg{
+	background-color: #FDFDFD;
+}
+
+.lightGrayBg{
+	background-color: #eaeaea;
+}
+
+.selectedRow{
+	bgcolor:#B5B8BF !important;
+}
+
+.device_in_depth_data_row {
+	padding: 0 0 3px 0;
+	color: #3D3C3B;
+	font-family: MuseoSans-300;
+	font-size: 15px;
+}
+
+.device_in_depth_data_row:not (:last-of-type ) {
+	border-bottom: solid thin #D5D6D8;
+}
+
+.device_in_depth_data_row .field_name {
+	display: inline-block;
+	width: 175px;
+	line-height: 20px;
+	font-family: MuseoSans-900;
+}
+
+.device_in_depth_data_row .field_value {
+	font-family: MuseoSans-500;
+}
