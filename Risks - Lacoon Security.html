@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)https://cloud-vm.locsec.int/risks/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Risks - Lacoon Security</title>
+
+<link rel="shortcut icon" href="https://cloud-vm.locsec.int/static/images/favicon.f9a692a9cc18.ico">
+<link rel="stylesheet" type="text/css" href="./Risks - Lacoon Security_files/jquery-ui-1.10.1.custom.a401dc571c23.css">
+<link rel="stylesheet" type="text/css" href="./Risks - Lacoon Security_files/token-input-facebook.cbbcf43e67c9.css">
+<link rel="stylesheet" type="text/css" href="./Risks - Lacoon Security_files/jquery.jgrowl.b386677c1cb0.css">
+<link rel="stylesheet" type="text/css" href="./Risks - Lacoon Security_files/base.40cb33a924c7.css">
+<link rel="stylesheet" type="text/css" href="./override.css">
+
+
+<script src="./Risks - Lacoon Security_files/common.1b1b0d18be27.js"></script>
+<script src="./Risks - Lacoon Security_files/underscore-min.6dc59d3a72ad.js"></script>
+<script src="./Risks - Lacoon Security_files/jquery-1.9.1.08c235d35775.js"></script>
+<script src="./Risks - Lacoon Security_files/jquery-ui-1.10.1.custom.640f05c62305.js"></script>
+<script src="./Risks - Lacoon Security_files/jquery.cookie.9b009119a2cb.js"></script>
+<script src="./Risks - Lacoon Security_files/jquery.jgrowl.c63a01d18244.js"></script>
+<script src="./Risks - Lacoon Security_files/jquery.tokeninput.5704fc516ca1.js"></script>
+<script src="./Risks - Lacoon Security_files/util.f9eeeac00d67.js"></script>
+
+<script src="./Risks - Lacoon Security_files/bugsense.f95b5cfbc498.js"></script>
+ <script type="text/javascript">
+ 	APP_VERSION = '2.9.1-SNAPSHOT';
+	refreshInterval = '10000';
+	REFRESH_INTERVAL = '10000';
+	csrf_token = '1p1qQoZlwlUG0fhJMNol4pGBTe32EHqD';
+ 	
+ 	// see: https://github.com/lmjabreu/Bugsense-JS-Client
+    bugsense = new Bugsense( {
+              apiKey: 'b82f11ea',
+              appName: 'dashboard01-gunicorn',
+              appVersion: APP_VERSION
+            } );
+ 	
+    window.onerror = function ( exception, url, line ) {
+    	console.log(exception);
+    	console.log(url);
+    	console.log(line);
+    	
+        bugsense.notify.apply( bugsense, [ exception, url, line ] );
+        
+        return true;
+      };
+	  
+      try{
+    	  
+          isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0;
+          // Opera 8.0+ (UA detection to detect Blink/v8-powered Opera)
+    	  isFirefox = typeof InstallTrigger !== 'undefined';   // Firefox 1.0+
+    	  isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+    	      // At least Safari 3+: "[object HTMLElementConstructor]"
+    	  isChrome = !!window.chrome && !isOpera;              // Chrome 1+
+    	  isIE = /*@cc_on!@*/false || document.documentMode;   // At least IE6
+    }
+    catch(err){
+    	
+    };
+    
+ </script>
+ 
+ <script type="text/javascript">		
+		/* transferring the view parameters to the external js file */
+		AJAX_TIMEOUT = 55000		
+</script>
+
+
+<link rel="stylesheet" type="text/css" href="./Risks - Lacoon Security_files/risk.8c2d5143a9f9.css">
+<script src="./Risks - Lacoon Security_files/device_risk_page.7f46d6f1a851.js"></script><style type="text/css"></style>
+
+</head>
+<body class="m-new-design-styles">
+	<div id="top" class="fullwidth">
+		<nav>
+			<a class="current" href="https://cloud-vm.locsec.int/">Dashboard</a>
+			<a class="" href="https://cloud-vm.locsec.int/actions/">Actions</a>
+			<a class="" href="https://cloud-vm.locsec.int/app_analysis/">Traffic Analysis</a>
+			<a class="" href="https://cloud-vm.locsec.int/users/">Users</a>
+			<a class="" href="https://cloud-vm.locsec.int/settings/">Settings</a>
+			<a class="" href="https://cloud-vm.locsec.int/help/">Help</a>
+		</nav>
+		
+		<a href="https://cloud-vm.locsec.int/"><img id="logo" src="./Risks - Lacoon Security_files/logo.ac97c7f5b196.png" alt="Lacoon Security" title="Lacoon Mobile Fortress: Version 2.9.1-SNAPSHOT"></a>
+		<div id="username">
+			 
+				dashboard@lacoon.com 
+			
+		</div>
+	</div>
+	
+<div id="main" class="whiteBg">
+
+	<header class="expand-collapse-control__head">
+		<img src="./Risks - Lacoon Security_files/mobileicon.241c4871bc5d.png">
+		<h1>DEVICE RISK</h1>
+		<i class="triangle-down-blue triangle-position-right"></i>
+	</header>	
+	<div id="top_nav_bar" class="lightGrayBg">
+		<a class="top_nav_button current" onclick="javascript:;">DEVICES AT RISK</a>
+		<a class="top_nav_button" onclick="javascript:;">SEARCH DEVICES</a>
+		<div class="quick_search">
+			<input class="searchField" data-search_type="device" type="text" placeholder="Search User">
+		</div>
+	</div>
+
+	<section id="risky_devices_table" class="lightGrayBg">
+		<div id="risky_devices_table_container">
+			<table class="generalDataTable" width="100%">
+				<thead>
+					<tr>
+						<th>
+							<div class="center_align_div small_table_header">
+								<span class="float_left">ID</span>
+								<div data-sort_order="descending" data-sort_field="ID" onclick="sortBy(this, getDeviceAlertsData);" class="sort_btn sort_descending"></div>
+							</div>
+						</th>
+						<th>
+							<div class="center_align_div medium_table_header">
+								<span class="float_left">NAME</span>
+								<div data-sort_order="descending" data-sort_field="NAME" onclick="sortBy(this, getDeviceAlertsData);" class="sort_btn sort_descending triangle-down-blue"></div>
+							</div>
+						</th>
+						<th>
+							<div class="center_align_div mid_medium_table_header">
+								<span class="float_left">GROUPS</span>
+								<div data-sort_order="descending" data-sort_field="GROUPS" onclick="sortBy(this, getDeviceAlertsData);" class="sort_btn sort_descending"></div>
+							</div>
+						</th>
+						
+						<th>
+							<div class="center_align_div big_table_header">
+								<span class="float_left">DEVICE TYPE</span>
+								<div data-sort_order="descending" data-sort_field="DEVICE_TYPE" onclick="sortBy(this, getDeviceAlertsData);" class="sort_btn sort_descending triangle-down-blue"></div>
+							</div>
+						</th>
+						<th>
+							<div class="center_align_div medium_table_header">
+								<span class="float_left">RISK</span>
+								<div data-sort_order="descending" data-sort_field="RISK" onclick="sortBy(this, getDeviceAlertsData);" class="sort_btn sort_descending triangle-down-blue"></div>
+							</div>
+						</th>
+						<th>
+							<div class="center_align_div mid_medium_table_header">
+								<span class="float_left">CURRENT INFECTIONS</span>
+								<div data-sort_order="descending" data-sort_field="NUMBER_OF_INFECTIONS" onclick="sortBy(this);" class="sort_btn sort_descending triangle-down-blue"></div>
+							</div>
+						</th>
+						<th>
+							<div class="center_align_div big_table_header">
+								<span class="float_left">MITIGATION</span>
+								<div data-sort_order="descending" data-sort_field="STATUS" onclick="sortBy(this, getDeviceAlertsData);" class="sort_btn sort_descending triangle-down-blue"></div>
+							</div>
+						</th>
+						<th>
+							<div class="center_align_div medium_table_header">
+								<span class="float_left">INFECTION HISTORY</span>
+								<div data-sort_order="descending" data-sort_field="CURRENT_AND_PAST_INFECTIONS" onclick="sortBy(this);" class="sort_btn sort_descending triangle-down-blue"></div>
+							</div>
+						</th>
+						<th>
+							<div class="center_align_div xl_table_header">
+								<span class="float_left">LAST ALERT</span>
+								<div data-sort_order="descending" data-sort_field="LAST_ALERT" onclick="sortBy(this);" class="sort_btn sort_descending triangle-down-blue"></div>
+							</div>
+						</th>
+					</tr>
+				</thead>
+				<tbody id="risky_devices_table_body">
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#B5B8BF" id="4" data-device_id="4" onclick="handleDeviceRiskRowClick(this);">
+		<td class="m-text-left">4</td>
+		<td class="m-text-left">jonathan iphone</td>
+		<td class="m-text-left">ALL</td>
+		<td class="m-text-left">Android</td>
+		<td class="m-text-left">High</td>
+		<td class="m-text-left">7</td>
+		<td class="m-text-left">VPN OFF</td>
+		<td class="m-text-left">7</td>
+		<td class="m-text-left">Sun Dec 08 2013 18:37:00 GMT+0200 (IST)</td>
+	</tr>	
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#dbdbdb" id="11" data-device_id="11" onclick="handleDeviceRiskRowClick(this);">
+		<td class="m-text-left">11</td>
+		<td class="m-text-left">Ran1</td>
+		<td class="m-text-left">ALL</td>
+		<td class="m-text-left">Android</td>
+		<td class="m-text-left">Medium</td>
+		<td class="m-text-left">42</td>
+		<td class="m-text-left">VPN OFF</td>
+		<td class="m-text-left">42</td>
+		<td class="m-text-left">Wed Dec 11 2013 17:03:30 GMT+0200 (IST)</td>
+	</tr>	
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#eaeaea" id="20" data-device_id="20" onclick="handleDeviceRiskRowClick(this);">
+		<td class="m-text-left">20</td>
+		<td class="m-text-left">iphone</td>
+		<td class="m-text-left">ALL</td>
+		<td class="m-text-left">IOS Device</td>
+		<td class="m-text-left">High</td>
+		<td class="m-text-left">1</td>
+		<td class="m-text-left">VPN OFF</td>
+		<td class="m-text-left">1</td>
+		<td class="m-text-left">Mon Dec 09 2013 16:13:27 GMT+0200 (IST)</td>
+	</tr>	
+</tbody>
+			</table>
+		</div>
+		
+		<div class="glue_to_bottom">
+			<div class="table_pagination_control">	
+				<table style="width: 100%">
+					<tbody><tr>
+						<td class="pagNav handCursor prevPage" onclick="handelPrevpage(this);" data-table="devices">&lt;&lt; Prev</td>
+						<td class="pagNav currPageIndex" data-table="devices">1 / 1</td>
+						<td class="pagNav handCursor nextPage" onclick="handelNextpage(this);" data-table="devices">Next &gt;&gt;</td>
+					</tr>
+					<tr class="separator">		
+				</tr></tbody></table>
+			</div>			
+		</div>		
+	</section>
+	
+	<section id="selected_device_details" style="" class="panel">
+		
+		<div id="device_in_depth">
+		
+				<header class="headerClass">
+					<img width="30px" height="30px" src="./Risks - Lacoon Security_files/device_details.697fb4037f6d.png">
+					<h1>RISK DETAILS</h1>
+				</header>
+				
+				<div id="device_in_depth_container" class="panel">
+					
+					<div class="device_in_depth_content">
+						<div class="device_in_depth_data_row">
+							<table>
+								<tbody>
+									<tr>
+										<td class="field_name">User</td>
+										<td class="field_val" id="device_alert_user_name">jonathan iphone</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="device_in_depth_data_row">
+							<table>
+								<tbody>
+									<tr>
+										<td class="field_name">Email</td>
+										<td class="field_val" id="device_alert_user_email">cookuricoo@gmail.com</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>					
+						<div class="device_in_depth_data_row">
+							<table>
+								<tbody>
+									<tr>
+										<td class="field_name">Mobile Number</td>
+										<td class="field_val" id="device_alert_user_number">No-Number</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>										
+					</div>
+					
+	
+					<div class="device_in_depth_content">
+						<div class="device_in_depth_data_row">
+							<table>
+								<tbody>
+									<tr>
+										<td class="field_name">Groups</td>
+										<td class="field_val" id="device_alert_user_groups">ALL</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="device_in_depth_data_row">
+							<table>
+								<tbody>
+									<tr>
+										<td class="field_name">Device</td>
+										<td class="field_val" id="device_alert_device_model">Unknown Manufacturer / Unknown Model</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>					
+						<div class="device_in_depth_data_row">
+							<table>
+								<tbody>
+									<tr>
+										<td class="field_name">OS</td>
+										<td class="field_val" id="device_alert_device_os">Android 4.x</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>										
+					</div>
+	
+	
+					<div class="device_in_depth_content">
+						<div class="device_in_depth_data_row" style="width: 100%">
+							<table style="width: 100%">
+								<tbody>
+									<tr>
+										<td class="field_name" style="width: 100%">Risk Level</td>
+										<td class="field_val" id="device_alert_device_risk" style="width: 58%; background-color: #BF3C30; color: #FFF; text-align: center; border: none; border-radius: 0px; font-weight: bold;">High</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						<div class="device_in_depth_data_row">
+							<table>
+								<tbody>
+									<tr>
+										<td class="field_name">Number Of Infections</td>
+										<td class="field_val" id="device_alert_unresolved_alerts">7</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>					
+						<div class="device_in_depth_data_row" style="width: 100%">
+							<table style="width: 100%; position: relative; top: -11px;">
+								<tbody>
+									<tr>
+										<td><span class="field_name">VPN Protection: </span><span id="device_alert_vpn_status" class="offClass"></span></td>										
+									</tr>
+								</tbody>
+							</table>
+						</div>										
+					</div>
+					<div class="clear"></div>
+					<div id="search_alert_bar">
+						<div id="show_only_unresolved">
+							<input type="checkbox" data-id="id" id="select-action-id" onclick="checkboxClickHandler(this);">
+							<label for="select-action-id" data-id="id"></label>
+							<span style="font-family: MuseoSans-300;">SHOW ONLY UNRESOLVED ALERTS </span>					
+						</div>
+						<div class="quick_search">
+							<input class="searchField" data-search_type="alert" type="text" placeholder="Search Alert">			
+						</div>
+					</div>										
+				</div>				
+		</div>
+		
+		<div id="device_alerts_conrtainer">
+			<div id="device_alerts_table_container">
+				<table class="generalDataTable spaceUnder" width="100%">					
+					<thead>
+						<tr>
+							<th>
+								<div class="center_align_div medium_table_header">
+									<span class="float_left">TIME</span>
+									<div data-sort_order="descending" data-sort_field="alert_time" onclick="sortBy(this, sortAlerts);" class="sort_btn sort_descending"></div>
+								</div>
+							</th>
+							<th>
+								<div class="center_align_div mid_medium_table_header">
+									<span>SEVERITY</span>
+									<!-- div data-sort_order="descending" data-sort_field="SEVERITY" onclick="sortBy(this);" class="sort_btn sort_descending"></div-->
+								</div>
+							</th>							
+							<th>
+								<div class="center_align_div biggy_table_header">
+									<span class="float_left">USER ACTION</span>
+									<div data-sort_order="descending" data-sort_field="USER_ACTION" onclick="sortBy(this, sortAlerts);" class="sort_btn sort_descending"></div>
+								</div>
+							</th>
+							<th>
+								<div class="center_align_div mid_medium_table_header">
+									<span>POLICY</span>									
+								</div>
+							</th>
+							<th>
+								<div class="center_align_div medium_table_header">
+									<span class="float_left">EVENT</span>
+									<div data-sort_order="descending" data-sort_field="EVENT" onclick="sortBy(this, sortAlerts);" class="sort_btn sort_descending"></div>
+								</div>
+							</th>
+							<th>
+								<div class="center_align_div mid_medium_table_header">
+									<span class="float_left">DETAILS</span>
+									<div data-sort_order="descending" data-sort_field="DETAILS" onclick="sortBy(this, sortAlerts);" class="sort_btn sort_descending"></div>
+								</div>
+							</th>
+						</tr>
+					</thead>
+					<tbody id="device_alerts_table_body"><tr class="separator"></tr>
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#e5b5b5" id="35" data-alert_id="35">
+		<td class="m-text-left">Sun Dec 08 2013 18:37:00 GMT+0200 (IST)</td>
+		<td class="m-text-left">Medium</td>
+		<td class="m-text-left">No Action</td>
+		<td class="m-text-left">Default</td>
+		<td class="m-text-left">Malicious Application</td>
+		<td class="m-text-left url_link" data-appid="05a64c76b56919f4c6063ce376b59ac84c707425d6a442936b5ad659f7293c1e" data-sevirity="Medium" onclick="ActionAnalyzeAlertWrapper(this);">Forest Defender</td>
+		
+	</tr>
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#e5b5b5" id="34" data-alert_id="34">
+		<td class="m-text-left">Sun Dec 08 2013 18:36:00 GMT+0200 (IST)</td>
+		<td class="m-text-left">Medium</td>
+		<td class="m-text-left">No Action</td>
+		<td class="m-text-left">Default</td>
+		<td class="m-text-left">Malicious Application</td>
+		<td class="m-text-left url_link" data-appid="996668d030b55161819e20d2d801a5fae4063b121211cbdfb252cb71e1014e50" data-sevirity="Medium" onclick="ActionAnalyzeAlertWrapper(this);">Market Plugin</td>
+		
+	</tr>
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#e5b5b5" id="33" data-alert_id="33">
+		<td class="m-text-left">Sun Dec 08 2013 18:22:12 GMT+0200 (IST)</td>
+		<td class="m-text-left">None</td>
+		<td class="m-text-left">No Action</td>
+		<td class="m-text-left">Default</td>
+		<td class="m-text-left">Malicious Application</td>
+		<td class="m-text-left url_link" data-appid="e95b59f9cd9c55a7545c2cecdc78765a32aa9171da61f9aa51cfc3a31f9c516f" data-sevirity="None" onclick="ActionAnalyzeAlertWrapper(this);">Setup</td>
+		
+	</tr>
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#cce8b5" id="30" data-alert_id="30">
+		<td class="m-text-left">Sun Dec 08 2013 17:42:18 GMT+0200 (IST)</td>
+		<td class="m-text-left">High</td>
+		<td class="m-text-left">Application Uninstalled</td>
+		<td class="m-text-left">Black Listed</td>
+		<td class="m-text-left">Malicious Application</td>
+		<td class="m-text-left url_link" data-appid="11be5f8ba3b41c09eec7cfccfe503f286af5717ddaf7fdd62458774cb15f04e9" data-sevirity="High" onclick="ActionAnalyzeAlertWrapper(this);">Sleep</td>
+		
+	</tr>
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#cce8b5" id="28" data-alert_id="28">
+		<td class="m-text-left">Sun Dec 08 2013 17:41:41 GMT+0200 (IST)</td>
+		<td class="m-text-left">High</td>
+		<td class="m-text-left">Application Uninstalled</td>
+		<td class="m-text-left">Black Listed</td>
+		<td class="m-text-left">Malicious Application</td>
+		<td class="m-text-left url_link" data-appid="11be5f8ba3b41c09eec7cfccfe503f286af5717ddaf7fdd62458774cb15f04e9" data-sevirity="High" onclick="ActionAnalyzeAlertWrapper(this);">Sleep</td>
+		
+	</tr>
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#cce8b5" id="22" data-alert_id="22">
+		<td class="m-text-left">Sun Dec 08 2013 17:35:07 GMT+0200 (IST)</td>
+		<td class="m-text-left">High</td>
+		<td class="m-text-left">Application Uninstalled</td>
+		<td class="m-text-left">Black Listed</td>
+		<td class="m-text-left">Malicious Application</td>
+		<td class="m-text-left url_link" data-appid="11be5f8ba3b41c09eec7cfccfe503f286af5717ddaf7fdd62458774cb15f04e9" data-sevirity="High" onclick="ActionAnalyzeAlertWrapper(this);">Sleep</td>
+		
+	</tr>
+
+
+
+	<tr class="separator"></tr>
+	<tr bgcolor="#cce8b5" id="21" data-alert_id="21">
+		<td class="m-text-left">Sun Dec 08 2013 17:27:51 GMT+0200 (IST)</td>
+		<td class="m-text-left">High</td>
+		<td class="m-text-left">Application Uninstalled</td>
+		<td class="m-text-left">Black Listed</td>
+		<td class="m-text-left">Malicious Application</td>
+		<td class="m-text-left url_link" data-appid="11be5f8ba3b41c09eec7cfccfe503f286af5717ddaf7fdd62458774cb15f04e9" data-sevirity="High" onclick="ActionAnalyzeAlertWrapper(this);">Sleep</td>
+		
+	</tr>
+<tr class="separator"></tr></tbody>
+				</table>
+			</div>
+			<div class="table_pagination_control">	
+				<table style="width: 100%; top: -6px; position: relative;">
+					<tbody><tr>
+						<td class="pagNav handCursor prevPage" onclick="handelPrevpage(this);" data-table="alerts">&lt;&lt; Prev</td>
+						<td class="pagNav currPageIndex" data-table="alerts">1 / 1</td>
+						<td class="pagNav handCursor nextPage" onclick="handelNextpage(this);" data-table="alerts">Next &gt;&gt;</td>
+					</tr>					
+				</tbody></table>
+			</div>
+		</div>
+	</section>		
+</div>
+
+<script type="text/template" id="risky-device-row-template">
+<%
+	var row_color = "#eaeaea";
+	if((row_num % 2) == 1)
+	{
+		row_color = "#dbdbdb";
+	}
+
+	var onclickFunction = "";
+
+	if(data.total_alerts > 0){
+		onclickFunction = "handleDeviceRiskRowClick(this);";
+	}
+
+	var cursorStyle = '';
+			
+	if(data.total_alerts == 0){
+		cursorStyle = 'style="cursor: default !important;"';
+	}
+
+	var last_alert_time = "No Alerts";
+	if(typeof data.last_alert != "undefined" && data.last_alert != null && data.last_alert != ""){
+		last_alert_time = new Date(data.last_alert);
+	}
+
+	var groups = "";
+	/* console.log(data.groups); */
+	for(var i=0; i < data.groups.length - 1; i++){
+		var currGroup = data.groups[i].name;
+		groups = currGroup + ", ";
+	}
+
+	groups = groups + data.groups[data.groups.length - 1].name;
+	
+%>
+
+	<tr class="separator" />
+	<tr bgcolor="<%=row_color%>" id="<%=data.id%>" data-device_id="<%=data.id%>" onclick='<%=onclickFunction%>' <%=cursorStyle%>>
+		<td class="m-text-left"><%=data.id%></td>
+		<td class="m-text-left"><%=data.name%></td>
+		<td class="m-text-left"><%=groups%></td>
+		<td class="m-text-left"><%=data.device_type%></td>
+		<td class="m-text-left"><%=risk_from_num_to_text(data.risk)%></td>
+		<td class="m-text-left"><%=data.unresolved_alerts%></td>
+		<td class="m-text-left"><%=data.migitation%></td>
+		<td class="m-text-left"><%=data.total_alerts%></td>
+		<td class="m-text-left"><%=last_alert_time%></td>
+	</tr>	
+</script>
+
+<script type="text/template" id="device-alerts-row-template">
+<%
+	var is_safe = false;
+
+	var userAction = userActionLookUp[data.user_action];
+
+	var user_action_timestamp = data.user_action_timestamp;
+
+	var severity = "";
+	var event = "";
+	var app_details = "";
+	var policy = ""; 
+
+	var details = processAlertDetails(data);
+
+	if(details)
+	{
+		/* console.log(details); */
+		if(typeof details.sevirity != "undefined"){
+			severity = details.sevirity; 
+		}
+
+		if(typeof details.event != "undefined"){
+			event = details.event; 
+		}
+				
+		if(typeof details.signature != "undefined"){
+			app_details = details.signature; 
+		}
+
+		if(typeof details.policy != "undefined"){
+			policy=policyLookUp[details.policy];			
+		}
+		
+		/* if the app was removed, or the user approved it, or it was white listed then it's safe. */
+		if(data.user_action == "AU" || data.user_action == "UA" || details.policy == "WL"){
+			is_safe = true;
+		}	
+
+	}
+	else{
+		console.log("ERROR: could not extract alert details.");
+	}
+
+	var color = "#e5b5b5";
+	if(is_safe){
+		color = "#cce8b5";
+	}
+
+
+	var details_class = "";
+	var detail_actions = "";
+	if(data.alertType == "SP"){
+		details_class = "url_link";
+		var appid = data.appDetails.appID
+		detail_actions = "data-appid='" + appid + "'  data-sevirity='"+ severity + "' onclick='ActionAnalyzeAlertWrapper(this);'";
+	}
+	
+	var date = new Date(data.backend_last_updated);
+
+%>
+
+	<tr class="separator" />
+	<tr bgcolor="<%=color%>" id="<%=id%>" data-alert_id="<%=id%>">
+		<td class="m-text-left"><%=date%></td>
+		<td class="m-text-left"><%=severity%></td>
+		<td class="m-text-left"><%=userAction%></td>
+		<td class="m-text-left"><%=policy%></td>
+		<td class="m-text-left"><%=event%></td>
+		<td class="m-text-left <%=details_class%>" <%=detail_actions%>><%=app_details%></td>
+		
+	</tr>
+</script>
+
+
+<script type="text/javascript">		
+		//transferring the view parameters to the external js file
+		refreshInterval = 10000;		
+		demo_id = '61be219f4edda2cea037d65cb36f77c29c2a47f92fb6f4cb0e901d262a6b58c4';
+		logo_static_location = "/static/appLogos/";
+		DEVICE_RISK_LOW_THRESHOLD = 0.33;
+		DEVICE_RISK_HIGH_THRESHOLD = 0.66;
+		
+</script>
+
+
+<script>try{function lpshowmenudiv(id){   closelpmenus(id);   var div = document.getElementById('lppopup'+id);   var btn = document.getElementById('lp'+id);   if(btn && div){     var btnstyle = window.getComputedStyle(btn, null);     var divstyle = window.getComputedStyle(div, null);     var posx = btn.offsetLeft;     posx -= 80;     var divwidth = parseInt(divstyle.getPropertyValue('width'));     if(posx + divwidth > window.innerWidth - 25){       posx -= ((posx + divwidth) - window.innerWidth + 25);     }     div.style.left = posx + "px";     div.style.top = (btn.offsetTop + parseInt(btnstyle.getPropertyValue('height'))) + "px";         if(div.style.display=='block'){div.style.display = 'none'; if(typeof(slideup)=='function'){slideup();} }    else div.style.display = 'block';       } }function closelpmenus(id){   if(typeof(lpgblmenus)!='undefined'){     for(var i=0; i < lpgblmenus.length; i++){       if((id==null || lpgblmenus[i]!='lppopup'+id) && document.getElementById(lpgblmenus[i]))         document.getElementById(lpgblmenus[i]).style.display = 'none';     }   }} var lpcustomEvent = document.createEvent('Event'); lpcustomEvent.initEvent('lpCustomEventMenu', true, true); }catch(e){}</script><script>try{if(typeof(lpgblmenus)=='undefined'){ lpgblmenus = new Array(); }   lpgblmenus[lpgblmenus.length] = 'lppopupnever';   }catch(e){}</script><script>try{document.addEventListener('mouseup', function(e){ if(typeof(closelpmenus)=='function'){closelpmenus();}}, false)}catch(e){}</script></body></html>
