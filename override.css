@@ -78,24 +78,37 @@
 	color: #286985;
 }
 
+.m-text-underline {
+	text-decoration: underline;
+}
+
 .m-new-design-styles .generalDataTable td {
 	padding: 0 0 0 5px;
 	font-size: 14px;
 }
 
-.table_pagination_control ul {
-
+.m-new-design-styles .table_pagination_control {
+	margin: 0;
+	width: auto;
+	height: auto;
+	float: right;
 }
 
-.table_pagination_control ul li {
+.m-new-design-styles .table_pagination_control ul {
+	margin: 0 20px 0 0;
+	padding: 0;
+	outline: 0;
+}
+
+.m-new-design-styles .table_pagination_control ul li {
 	list-style-type: none;
 	display: inline;
 	border: 1px solid #999;
-	padding: 6px 0;
+	padding: 6px 3px;
 	text-align: center;
 }
 
-.table_pagination_control ul li a {
+.m-new-design-styles .table_pagination_control ul li a {
 	text-decoration: none;
 	display: inline-block;
 	line-height: 32px;
@@ -104,4 +117,47 @@
 	margin: 0;
 	padding: 0;
 	outline: 0;
+	color: #676767;
+}
+
+.m-new-design-styles th {
+	font-weight: normal;
+}
+
+.m-new-design-styles .device_in_depth_data_row > table {
+	/*visibility: hidden;*/
+	display: none;
+}
+
+.m-new-design-styles .device_in_depth_data_row {
+	height: 26px;
+}
+
+.m-new-design-styles .device_in_depth_data_row:before,
+.m-new-design-styles .device_in_depth_data_row:after {
+	display: table;
+	content: "";
+	line-height: 0;
+	height: 0;
+}
+
+.m-new-design-styles .device_in_depth_data_row:after {
+	clear: both;
+}
+
+.m-new-design-styles .device_in_depth_content {
+	width: 25%;
+}
+
+.item-float {
+	float: left;
+	line-height: 1px;
+}
+
+.item-label {
+	width: 150px;
+}
+
+.item-value {
+	width: 300px;
 }
